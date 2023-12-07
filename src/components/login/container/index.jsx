@@ -9,18 +9,22 @@ class LoginContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: "admin",
-            password: "admin12345",
+            cUsername: "admin",
+            cPassword: "12345",
+            username: null,
+            password: null,
         }
     }
 
-    checkUserNameOrPassword() {
-        const username = this.state.username;
-        const password = this.state.password;
+    setUserNameAndPassword() {
+        this.setState({
+            username: document.getElementById("userName").value,
+            password: document.getElementById("password").value,
+        });
+    }
 
-        if (document.getElementById("userName").value === username &&
-            document.getElementById("password").value === password
-        ) {
+    checkUserNameOrPassword() {
+        if (this.state.username === this.state.cUsername && this.state.password === this.state.cPassword) {
 
         }
     }
@@ -39,7 +43,7 @@ class LoginContainer extends Component {
                                variant="outlined"
                                style={{marginTop: '30px'}}
                                onKeyUp={() => {
-                                   this.checkUserNameOrPassword();
+                                   this.setUserNameAndPassword();
                                }}
                     />
 
@@ -50,20 +54,23 @@ class LoginContainer extends Component {
                                variant="outlined"
                                style={{marginTop: '20px'}}
                                onKeyUp={() => {
-                                   this.checkUserNameOrPassword();
+                                   this.setUserNameAndPassword();
                                }}
                     />
 
                     <div style={{marginTop: 30}}>
                         <GDSEButton
+                            id="btnSignIn"
                             label="Sign-In"
                             variant="contained"
                             color="primary"
                             onClick={() => {
+                                this.checkUserNameOrPassword();
                             }}
                         />
 
                         <GDSEButton
+                            id="btnSigUp"
                             label="Sign-Up"
                             variant="outlined"
                             color="primary"

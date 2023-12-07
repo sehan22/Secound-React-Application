@@ -4,6 +4,7 @@ import {Button} from "@mui/material";
 
 class GDSEButton extends Component {
     static propTypes = {
+        id: PropTypes.string,
         onClick: PropTypes.func,
         children: PropTypes.node,
         variant: PropTypes.string,
@@ -42,6 +43,7 @@ class GDSEButton extends Component {
 
     render() {
         const {
+            id,
             children,
             label,
             className,
@@ -57,6 +59,7 @@ class GDSEButton extends Component {
 
         return(
             <Button
+                id = {id}
                 className = {className}
                 size = {size}
                 endIcon = {endIcon}
