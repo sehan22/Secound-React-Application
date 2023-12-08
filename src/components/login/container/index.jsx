@@ -11,8 +11,10 @@ class LoginContainer extends Component {
         this.state = {
             cUsername: "admin",
             cPassword: "12345",
-            username: null,
-            password: null,
+            formData: {
+                username: null,
+                password: null,
+            }
         }
     }
 
@@ -25,7 +27,7 @@ class LoginContainer extends Component {
 
     checkUserNameOrPassword() {
         if (this.state.username === this.state.cUsername && this.state.password === this.state.cPassword) {
-
+            alert("hri")
         }
     }
 
@@ -42,8 +44,13 @@ class LoginContainer extends Component {
                                type='text'
                                variant="outlined"
                                style={{marginTop: '30px'}}
-                               onKeyUp={() => {
-                                   this.setUserNameAndPassword();
+                               onChange={(e) => {
+                                   console.log(e.target.value);
+                                   let formData = this.state.formData;
+                                   formData.username = e.target.value;
+                                   this.setState({
+                                       formData
+                                   });
                                }}
                     />
 
@@ -53,8 +60,13 @@ class LoginContainer extends Component {
                                type='password'
                                variant="outlined"
                                style={{marginTop: '20px'}}
-                               onKeyUp={() => {
-                                   this.setUserNameAndPassword();
+                               onChange={(e) => {
+                                   console.log(e.target.value);
+                                   let formData = this.state.formData;
+                                   formData.password = e.target.value;
+                                   this.setState({
+                                       formData
+                                   });
                                }}
                     />
 
@@ -75,6 +87,8 @@ class LoginContainer extends Component {
                             variant="outlined"
                             color="primary"
                             onClick={() => {
+                                console.log(this.state.formData.username)
+                                console.log(this.state.formData.password)
                             }}
                             style={{marginLeft: '15px'}}
                         />
