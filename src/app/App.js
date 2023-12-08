@@ -1,13 +1,23 @@
 import React from "react";
 import HomePage from "../pages/home";
-import LoginPage from "../pages/login";
-import LoginGreeting from "../components/login/greeting";
+import LoginPage from "../pages/session/login";
+import {Route, Routes} from "react-router-dom";
+import NotFound from "../pages/session/NotFound";
 
 function App() {
     return (
         <>
-            {/*<HomePage name="Sehan" status="Busy"/>*/}
-            <LoginPage />
+            <Routes>
+                <Route
+                    path='/' element={<HomePage name="Sehan" status="Busy"/>}
+                />
+                <Route
+                    path='/login' element={<LoginPage/>}
+                />
+                <Route
+                    path='*' element={<NotFound/>}
+                />
+            </Routes>
         </>
     );
 }

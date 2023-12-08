@@ -27,9 +27,9 @@ class GDSESnackBar extends Component {
         variant: "filled",
     }
 
-    handleButtonClose = (e) => {
+    handleButtonClose = (event) => {
         const {onClose} = this.props;
-        onClose && onClose({e})
+        onClose && onClose({event})
     }
 
     renderChildren = (message, children) => {
@@ -41,11 +41,11 @@ class GDSESnackBar extends Component {
         const {
             open,
             className,
-            severity,
+            message,
             autoHideDuration,
             anchorChildren,
             children,
-            message,
+            severity,
             variant,
         } = this.props;
 

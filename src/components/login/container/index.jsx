@@ -4,6 +4,7 @@ import {withStyles} from "@mui/styles";
 import {loginStyleCss} from "./style";
 import LoginGreeting from "../greeting";
 import GDSEButton from "../../common/button";
+import GDSESnackBar from "../../common/snackbar";
 
 class LoginContainer extends Component {
     constructor(props) {
@@ -14,7 +15,12 @@ class LoginContainer extends Component {
             formData: {
                 username: null,
                 password: null,
-            }
+            },
+
+            /*for snackbar*/
+            open: false,
+            message: null,
+            severity: null,
         }
     }
 
@@ -29,8 +35,17 @@ class LoginContainer extends Component {
         if (this.state.formData.username === this.state.cUsername
             && this.state.formData.password === this.state.cPassword) {
             console.log("hri")
+            this.setState({
+                open: true,
+                message: "Login Successfully",
+                severity: "success"
+            });
         } else {
-            console.log("wrong")
+            this.setState({
+                open: true,
+                message: "UserName or Password is incorrect!",
+                severity: "error"
+            });
         }
     }
 
@@ -96,6 +111,16 @@ class LoginContainer extends Component {
                         />
                     </div>
                 </div>
+                <GDSESnackBar
+                    open={this.state.open}
+                    onClose={() => {
+                        this.setState({open: false})
+                    }}
+                    message={this.state.message}
+                    autoHideDuration={3000}
+                    severity={this.state.severity}
+                    varient="filled"
+                />
             </div>
         )
     }
