@@ -3,6 +3,7 @@ import HomePage from "../pages/home";
 import LoginPage from "../pages/session/login";
 import {Route, Routes} from "react-router-dom";
 import NotFound from "../pages/session/NotFound";
+import FlexBoxLayout from "../pages/layouts/flexbox";
 
 function App() {
     return (
@@ -16,6 +17,9 @@ function App() {
                 />
                 <Route
                     path='*' element={<NotFound/>}
+                />
+                <Route
+                    path='/layout/flexbox' element={<FlexBoxLayout/>}
                 />
             </Routes>
         </>
