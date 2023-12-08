@@ -5,6 +5,7 @@ import {Route, Routes} from "react-router-dom";
 import NotFound from "../pages/session/NotFound";
 import FlexBoxLayout from "../pages/layouts/flexbox";
 import 'normalize.css';
+import GridLayout from "../pages/layouts/grid";
 
 function App() {
     return (
@@ -21,6 +22,9 @@ function App() {
                 />
                 <Route
                     path='/layout/flexbox' element={<FlexBoxLayout/>}
+                />
+                <Route
+                    path='/layout/grid' element={<GridLayout/>}
                 />
             </Routes>
         </>
