@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Alert, Button, TextField} from "@mui/material";
+import {TextField} from "@mui/material";
 import {withStyles} from "@mui/styles";
 import {loginStyleCss} from "./style";
 import LoginGreeting from "../greeting";
@@ -26,8 +26,11 @@ class LoginContainer extends Component {
     }
 
     checkUserNameOrPassword() {
-        if (this.state.username === this.state.cUsername && this.state.password === this.state.cPassword) {
-            alert("hri")
+        if (this.state.formData.username === this.state.cUsername
+            && this.state.formData.password === this.state.cPassword) {
+            console.log("hri")
+        } else {
+            console.log("wrong")
         }
     }
 
@@ -45,7 +48,6 @@ class LoginContainer extends Component {
                                variant="outlined"
                                style={{marginTop: '30px'}}
                                onChange={(e) => {
-                                   console.log(e.target.value);
                                    let formData = this.state.formData;
                                    formData.username = e.target.value;
                                    this.setState({
@@ -61,7 +63,6 @@ class LoginContainer extends Component {
                                variant="outlined"
                                style={{marginTop: '20px'}}
                                onChange={(e) => {
-                                   console.log(e.target.value);
                                    let formData = this.state.formData;
                                    formData.password = e.target.value;
                                    this.setState({
@@ -87,8 +88,9 @@ class LoginContainer extends Component {
                             variant="outlined"
                             color="primary"
                             onClick={() => {
-                                console.log(this.state.formData.username)
-                                console.log(this.state.formData.password)
+                                console.log(this.state.cUsername)
+                                console.log(this.state.cPassword)
+                                console.log(this.state.formData)
                             }}
                             style={{marginLeft: '15px'}}
                         />
