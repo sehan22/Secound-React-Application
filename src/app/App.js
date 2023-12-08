@@ -4,6 +4,7 @@ import LoginPage from "../pages/session/login";
 import {Route, Routes} from "react-router-dom";
 import NotFound from "../pages/session/NotFound";
 import FlexBoxLayout from "../pages/layouts/flexbox";
+import 'normalize.css';
 
 function App() {
     return (
