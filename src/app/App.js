@@ -9,7 +9,7 @@ function App() {
         <>
             <Routes>
                 <Route
-                    path='/' element={<HomePage name="Sehan" status="Busy"/>}
+                    exact path='/' element={<HomePage name="Sehan" status="Busy"/>}
                 />
                 <Route
                     path='/login' element={<LoginPage/>}

@@ -2,6 +2,7 @@ import {Component} from "react";
 import GDSEButton from "../../components/common/button";
 import not_found from "../../assets/img/404Img.png";
 import {withStyles} from "@mui/styles";
+import {Link} from "react-router-dom";
 
 const styleSheet = () => ({
     container: {
@@ -36,16 +37,18 @@ class NotFound extends Component {
         return (
             <div className={classes.container}>
                 <div className={classes.image_container}>
-                    <img className={classes.image}  src={not_found} alt="404"/>
+                    <img className={classes.image} src={not_found} alt="404"/>
                 </div>
 
                 <div></div>
 
-                <GDSEButton
-                    variant="contained"
-                    color="primary"
-                    label="Back to Home Page"
-                />
+                <Link to='/'>
+                    <GDSEButton
+                        variant="contained"
+                        color="primary"
+                        label="Back to Home Page"
+                    />
+                </Link>
             </div>
         )
     }
